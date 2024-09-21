@@ -1,9 +1,22 @@
-import React from 'react'
+"use client"
+import React, { useContext, useEffect } from 'react'
 import { Button } from './ui/button'
 import { SquareCheck } from 'lucide-react'
 import Image from 'next/image'
+import { AuthContext, AuthProvider } from '@/context/AuthProvider'
+import { useRouter } from 'next/navigation'
 
 const Navbar = () => {
+  const {isAuthenticated, logout} = useContext(AuthContext);
+
+  const handleLogout = () => {
+    console.log("logging out", isAuthenticated);
+    logout();
+    console.log("Logout called, isAuthenticated now:", isAuthenticated);
+  }
+
+  const router = useRouter();
+
   return (
     <div id="#nav">
       <div className='flex justify-between mx-6 mt-4'>
@@ -13,10 +26,13 @@ const Navbar = () => {
             </div>
             Task<span className='text-teal-700'>Me</span>
         </div>
-        <div className="flex gap-2">
-            <Button variant={'outline'} className='bg-teal-700 text-white font-montserrat'>Log In</Button>
-            <Button>Sign Up</Button>
+        {!isAuthenticated ? (
+          <div className="flex gap-2">
+          <Button variant={'outline'} className='bg-teal-700 text-white font-montserrat' onClick={() => router.push('/sign-in')}>Log In</Button>
+          <Button onClick={() => router.push('/sign-up')}>Sign Up</Button>
         </div>
+        ) : (<Button variant={'destructive'} onClick={handleLogout}>Log out</Button>)}
+        
       </div>
     </div>
   )
