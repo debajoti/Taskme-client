@@ -1,8 +1,14 @@
 import React from 'react'
 import { Draggable } from 'react-beautiful-dnd';
 import { Card, CardContent, CardHeader } from '../ui/card';
+import { Task } from '@/types/Task';
 
-const KanbanCard = ({ task, index } : any) => {
+interface KanbanCardProps {
+  task: Task;
+  index: number;
+}
+
+const KanbanCard: React.FC<KanbanCardProps> = ({ task, index }) => {
     return (
         <Draggable draggableId={task._id} index={index}>
           {(provided) => (

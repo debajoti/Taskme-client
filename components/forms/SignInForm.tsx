@@ -54,8 +54,8 @@ const SignInForm = () => {
       } else {
         console.error(response.data.message);
       }
-    } catch (err: any) {
-      console.error(err.message);
+    } catch (err) {
+      console.error(err);
     }
   };
 

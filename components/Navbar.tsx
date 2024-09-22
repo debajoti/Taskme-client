@@ -1,8 +1,8 @@
 "use client"
-import React, { useContext, useEffect } from 'react'
+import React, { useContext} from 'react'
 import { Button } from './ui/button'
 import { SquareCheck } from 'lucide-react'
-import { AuthContext, AuthProvider } from '@/context/AuthProvider'
+import { AuthContext} from '@/context/AuthProvider'
 import { useRouter } from 'next/navigation'
 
 const Navbar = () => {
