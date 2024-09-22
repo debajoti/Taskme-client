@@ -9,7 +9,13 @@ export const AuthContext = createContext({
     tokenValue : "",
 });
 
-export const AuthProvider = ({ children } : any) => {
+import { ReactNode } from 'react';
+
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
