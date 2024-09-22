@@ -17,8 +17,6 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-const SERVER_URI = process.env.SERVER_URI;
-
 const FormSchema = z
   .object({
     name: z.string().min(1, "Name is required"),
@@ -55,7 +53,7 @@ const SignUpForm = () => {
       if (response.status === 201) {
         router.push("/sign-in");
       } else {
-        console.log("Error in Sign-up");
+        console.error("Error in Sign-up");
       }
     } catch (err: any) {
       console.error(err.message);

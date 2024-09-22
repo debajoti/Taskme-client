@@ -26,21 +26,20 @@ export const AuthProvider = ({ children } : any) => {
 
   const logout = async () => {
     try {
-      console.log('Logout function called');
       localStorage.removeItem('token');
       setIsAuthenticated(false);
       router.push('/sign-in');
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   };
   const login = async () => {
     try {
-      console.log('Login function called');
+      console.error('Login function called');
       setIsAuthenticated(true);
       router.push('/dashboard');
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 

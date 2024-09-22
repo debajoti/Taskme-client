@@ -10,7 +10,6 @@ const Navbar = () => {
   const {isAuthenticated, logout} = useContext(AuthContext);
 
   const handleLogout = () => {
-    console.log("logging out", isAuthenticated);
     logout();
     console.log("Logout called, isAuthenticated now:", isAuthenticated);
   }

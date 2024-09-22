@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Task } from '@/types/Task';
 import { Button } from '@/components/ui/button';
 import TaskForm from './TaskForm';
-import { Dialog, DialogContent, DialogHeader } from '@/components/ui/dialog'; // Import Shadcn dialog component
+import { Dialog, DialogContent, DialogHeader } from '@/components/ui/dialog';
+import { Edit, Trash2 } from 'lucide-react';
 
 interface TaskTableProps {
   tasks: Task[];
@@ -62,8 +63,8 @@ const TaskTable: React.FC<TaskTableProps> = ({ tasks, onEditTask, onDeleteTask, 
                 <td className="px-4 py-2">{task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'No Due Date'}</td>
                 <td className="px-4 py-2">
                   <div className="flex space-x-2">
-                    <Button variant="secondary" onClick={() => handleEdit(task)}>Edit</Button>
-                    <Button variant="destructive" onClick={() => onDeleteTask(task._id)}>Delete</Button>
+                    <Button variant="secondary" onClick={() => handleEdit(task)}><Edit /></Button>
+                    <Button variant="destructive" onClick={() => onDeleteTask(task._id)}><Trash2 /></Button>
                   </div>
                 </td>
               </tr>
