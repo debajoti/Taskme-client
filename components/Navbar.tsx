@@ -2,7 +2,6 @@
 import React, { useContext, useEffect } from 'react'
 import { Button } from './ui/button'
 import { SquareCheck } from 'lucide-react'
-import Image from 'next/image'
 import { AuthContext, AuthProvider } from '@/context/AuthProvider'
 import { useRouter } from 'next/navigation'
 

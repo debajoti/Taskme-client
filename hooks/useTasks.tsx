@@ -1,4 +1,3 @@
-// hooks/useTasks.ts
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '@/context/AuthProvider';
